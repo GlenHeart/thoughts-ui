@@ -35,6 +35,7 @@ import './dialog.scss';
 import { Close } from '@element-plus/icons';
 
 export default defineComponent({
+  name: 'ThDialog',
   props: dialogProps,
   emits: ['opened', 'closed', 'close', 'open', 'update:modelValue'],
   setup(props, { emit }) {

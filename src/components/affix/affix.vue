@@ -13,6 +13,7 @@ interface rootStyleType {
 }
 
 export default defineComponent({
+  name: 'ThAffix',
   props: {
     offset: {
       type: Number,
