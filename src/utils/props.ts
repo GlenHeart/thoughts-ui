@@ -1,74 +1,80 @@
-import type { ExtractPropTypes, PropType } from '@vue/runtime-core'
-import { isObject } from '@vue/shared'
-import { warn } from 'vue'
-import fromPairs from 'lodash/fromPairs'
+import type { ExtractPropTypes, PropType } from '@vue/runtime-core';
+import { isObject } from '@vue/shared';
+import { warn } from 'vue';
+import fromPairs from 'lodash/fromPairs';
 
-const wrapperKey = Symbol()
-const propKey = Symbol()
-export type PropWrapper<T> = { [wrapperKey]: T }
-type IfUnknown<T, V> = [unknown] extends [T] ? V : T
+const wrapperKey = Symbol();
+const propKey = Symbol();
+export type PropWrapper<T> = { [wrapperKey]: T };
+type IfUnknown<T, V> = [unknown] extends [T] ? V : T;
 type ResolveProp<T> = ExtractPropTypes<{
-  key: { type: T; required: true }
-}>['key']
+  key: { type: T; required: true };
+}>['key'];
 
-type ResolvePropType<T> = ResolveProp<T> extends { type: infer V } ? V : ResolveProp<T>
+type ResolvePropType<T> = ResolveProp<T> extends { type: infer V }
+  ? V
+  : ResolveProp<T>;
 
 type _BuildPropDefault<T, D> = [T] extends [
   // eslint-disable-next-line @typescript-eslint/ban-types
-  Record<string, unknown> | Array<any> | Function
+  Record<string, unknown> | Array<any> | Function,
 ]
   ? D
   : D extends () => T
   ? ReturnType<D>
-  : D
+  : D;
 
-type ResolvePropTypeWithReadonly<T> = Readonly<T> extends Readonly<Array<infer A>> ? ResolveProp<A[]> : ResolvePropType<T>
-
+type ResolvePropTypeWithReadonly<T> = Readonly<T> extends Readonly<
+  Array<infer A>
+>
+  ? ResolveProp<A[]>
+  : ResolvePropType<T>;
 
 type _BuildPropType<T, V, C> =
   | (T extends PropWrapper<unknown>
-    ? T[typeof wrapperKey]
-    : [V] extends [never]
-    ? ResolvePropTypeWithReadonly<T> : never)
+      ? T[typeof wrapperKey]
+      : [V] extends [never]
+      ? ResolvePropTypeWithReadonly<T>
+      : never)
   | V
-  | C
+  | C;
 
 export type BuildPropType<T, V, C> = _BuildPropType<
   IfUnknown<T, never>,
   IfUnknown<V, never>,
   IfUnknown<C, never>
->
+>;
 
 export type BuildPropOption<T, D extends BuildPropType<T, V, C>, R, V, C> = {
-  type?: T
-  values?: readonly V[]
-  required?: R
+  type?: T;
+  values?: readonly V[];
+  required?: R;
   default?: R extends true
-  ? never
-  : D extends Record<string, unknown> | Array<any>
-  ? () => D
-  : (() => D) | D
-  validator?: ((val: any) => val is C) | ((val: any) => boolean)
-}
+    ? never
+    : D extends Record<string, unknown> | Array<any>
+    ? () => D
+    : (() => D) | D;
+  validator?: ((val: any) => val is C) | ((val: any) => boolean);
+};
 
 export type BuildPropDefault<T, D, R> = R extends true
   ? { readonly default?: undefined }
   : {
-    readonly default: Exclude<D, undefined> extends never
-    ? undefined
-    : Exclude<_BuildPropDefault<T, D>, undefined>
-  }
+      readonly default: Exclude<D, undefined> extends never
+        ? undefined
+        : Exclude<_BuildPropDefault<T, D>, undefined>;
+    };
 
 export type BuildPropReturn<T, D, R, V, C> = {
-  readonly type: PropType<BuildPropType<T, V, C>>
-  readonly required: IfUnknown<R, false>
-  readonly validator: ((val: unknown) => boolean) | undefined
-  [propKey]: true
+  readonly type: PropType<BuildPropType<T, V, C>>;
+  readonly required: IfUnknown<R, false>;
+  readonly validator: ((val: unknown) => boolean) | undefined;
+  [propKey]: true;
 } & BuildPropDefault<
   BuildPropType<T, V, C>,
   IfUnknown<D, never>,
   IfUnknown<R, false>
->
+>;
 export function buildProp<
   T = never,
   D extends BuildPropType<T, V, C> = never,
@@ -77,99 +83,100 @@ export function buildProp<
   C = never
 >(
   option: BuildPropOption<T, D, R, V, C>,
-  key?: string
+  key?: string,
 ): BuildPropReturn<T, D, R, V, C> {
   // filter native prop type and nested prop, e.g `null`, `undefined` (from `buildProps`)
-  if (!isObject(option) || !!option[propKey]) return option as any
+  if (!isObject(option) || !!option[propKey]) return option as any;
 
-  const { values, required, default: defaultValue, type, validator } = option
+  const { values, required, default: defaultValue, type, validator } = option;
 
   const _validator =
     values || validator
       ? (val: unknown) => {
-        let valid = false
-        let allowedValues: unknown[] = []
+          let valid = false;
+          let allowedValues: unknown[] = [];
 
-        if (values) {
-          allowedValues = [...values, defaultValue]
-          valid ||= allowedValues.includes(val)
+          if (values) {
+            allowedValues = [...values, defaultValue];
+            valid ||= allowedValues.includes(val);
+          }
+          if (validator) valid ||= validator(val);
+
+          if (!valid && allowedValues.length > 0) {
+            const allowValuesText = [...new Set(allowedValues)]
+              .map((value) => JSON.stringify(value))
+              .join(', ');
+            warn(
+              `Invalid prop: validation failed${
+                key ? ` for prop "${key}"` : ''
+              }. Expected one of [${allowValuesText}], got value ${JSON.stringify(
+                val,
+              )}.`,
+            );
+          }
+          return valid;
         }
-        if (validator) valid ||= validator(val)
+      : undefined;
 
-        if (!valid && allowedValues.length > 0) {
-          const allowValuesText = [...new Set(allowedValues)]
-            .map((value) => JSON.stringify(value))
-            .join(', ')
-          warn(
-            `Invalid prop: validation failed${key ? ` for prop "${key}"` : ''
-            }. Expected one of [${allowValuesText}], got value ${JSON.stringify(
-              val
-            )}.`
-          )
-        }
-        return valid
-      }
-      : undefined
-
-  return {
+  return ({
     type:
       typeof type === 'object' &&
-        Object.getOwnPropertySymbols(type).includes(wrapperKey)
+      Object.getOwnPropertySymbols(type).includes(wrapperKey)
         ? type[wrapperKey]
         : type,
     required: !!required,
     default: defaultValue,
     validator: _validator,
     [propKey]: true,
-  } as unknown as BuildPropReturn<T, D, R, V, C>
+  } as unknown) as BuildPropReturn<T, D, R, V, C>;
 }
 
 export const definePropType = <T>(val: any) =>
-  ({ [wrapperKey]: val } as PropWrapper<T>)
+  ({ [wrapperKey]: val } as PropWrapper<T>);
 
 type NativePropType = [
-  ((...args: any) => any) | { new (...args: any): any } | undefined | null
-]
+  ((...args: any) => any) | { new (...args: any): any } | undefined | null,
+];
 
 export const buildProps = <
   O extends {
     [K in keyof O]: O[K] extends BuildPropReturn<any, any, any, any, any>
-    ? O[K]
-    : [O[K]] extends NativePropType
-    ? O[K]
-    : O[K] extends BuildPropOption<
-      infer T,
-      infer D,
-      infer R,
-      infer V,
-      infer C
-    >
-    ? D extends BuildPropType<T, V, C>
-    ? BuildPropOption<T, D, R, V, C>
-    : never
-    : never
+      ? O[K]
+      : [O[K]] extends NativePropType
+      ? O[K]
+      : O[K] extends BuildPropOption<
+          infer T,
+          infer D,
+          infer R,
+          infer V,
+          infer C
+        >
+      ? D extends BuildPropType<T, V, C>
+        ? BuildPropOption<T, D, R, V, C>
+        : never
+      : never;
   }
 >(
-  props: O
+  props: O,
 ) =>
-  fromPairs(
+  (fromPairs(
     Object.entries(props).map(([key, option]) => [
       key,
       buildProp(option as any, key),
-    ])
-  ) as unknown as {
+    ]),
+  ) as unknown) as {
     [K in keyof O]: O[K] extends { [propKey]: boolean }
-    ? O[K]
-    : [O[K]] extends NativePropType
-    ? O[K]
-    : O[K] extends BuildPropOption<
-      infer T,
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      infer _D,
-      infer R,
-      infer V,
-      infer C
-    >
-    ? BuildPropReturn<T, O[K]['default'], R, V, C>
-    : never
-  }
+      ? O[K]
+      : [O[K]] extends NativePropType
+      ? O[K]
+      : O[K] extends BuildPropOption<
+          infer T,
+          // eslint-disable-next-line @typescript-eslint/no-unused-vars
+          infer _D,
+          infer R,
+          infer V,
+          infer C
+        >
+      ? BuildPropReturn<T, O[K]['default'], R, V, C>
+      : never;
+  };
