@@ -5,7 +5,7 @@ module.exports = {
   title: 'thoughts-ui',
   description: '业务组件积累',
   // 扫描srcIncludes里面的 *.md文件
-  srcIncludes: ['packages/components'],
+  srcIncludes: ['packages'],
   alias: {
     // 为了能在demo中正确的使用  import { X } from 'thoughts-ui'
     [`thoughts-ui`]: resolve('./packages/thoughts-ui/index.ts'),

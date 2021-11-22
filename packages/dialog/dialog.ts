@@ -1,4 +1,4 @@
-import { buildProps } from '../../utils/props';
+import { buildProps } from '../utils/props';
 import type { ExtractPropTypes } from 'vue';
 
 export const dialogProps = buildProps({

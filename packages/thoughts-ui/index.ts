@@ -1,6 +1,6 @@
-import Button from '../components/button/button.vue';
-import Affix from '../components/affix/affix.vue';
-import Dialog from '../components/dialog/dialog.vue';
+import Button from '../button/button.vue';
+import Affix from '../affix/affix.vue';
+import Dialog from '../dialog/dialog.vue';
 
 export { Button, Affix, Dialog };
 
