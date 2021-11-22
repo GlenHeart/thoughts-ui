@@ -16,7 +16,7 @@ export default {
   build: {
     minify: true,
     lib: {
-      entry: resolve('./src/index.ts'),
+      entry: resolve('./packages/thoughts-ui/index.ts'),
       name: 'thoughts-ui',
     },
     rollupOptions: {

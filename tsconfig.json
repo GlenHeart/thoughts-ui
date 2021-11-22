@@ -24,10 +24,10 @@
     "types": ["jest", "node"],
     "rootDir": ".",
     "paths": {
-      "@/*": ["src/*"],
-      "thoughts-ui": ["src/"]
+      "@/*": ["packages/*"],
+      "thoughts-ui": ["packages/thoughts-ui"]
     }
   },
-  "include": ["src"],
+  "include": ["packages"],
   "exclude": ["node_modules", "dist"]
 }

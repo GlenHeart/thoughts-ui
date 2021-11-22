@@ -1,6 +1,7 @@
 {
   "name": "thoughts-ui",
   "version": "0.0.1",
+  "private": true,
   "description": "业务组件积累",
   "main": "./dist/thoughts-ui.umd.js",
   "module": "./dist/thoughts-ui.es.js",
@@ -16,6 +17,9 @@
     }
   },
   "types": "dist/src/index.d.ts",
+  "workspaces": [
+    "packages/*"
+  ],
   "author": "dairan103@gmail.com",
   "license": "MIT",
   "scripts": {
@@ -55,6 +59,7 @@
     "gh-pages": "^3.1.0",
     "husky": "^4.3.0",
     "jest": "^26.6.3",
+    "lerna": "^4.0.0",
     "np": "^7.4.0",
     "prettier": "^2.1.2",
     "pretty-quick": "^3.1.0",
