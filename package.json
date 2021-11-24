@@ -24,7 +24,6 @@
   "license": "MIT",
   "scripts": {
     "dev": "vitepress-fc dev --root=docs --host",
-    "build": "vite build && yarn type",
     "type": "tsc -d",
     "test": "jest",
     "docs-build": "rimraf docs/dist && cross-env NODE_ENV=production vitepress-fc build --root=docs",
@@ -35,8 +34,7 @@
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
     "lint": "eslint  src/components/ src/utils",
     "lint-fix": "yarn lint -- --fix",
-    "ls-lint": "ls-lint",
-    "release": "np"
+    "ls-lint": "ls-lint"
   },
   "devDependencies": {
     "@ls-lint/ls-lint": "^1.9.2",
@@ -60,7 +58,6 @@
     "husky": "^4.3.0",
     "jest": "^26.6.3",
     "lerna": "^4.0.0",
-    "np": "^7.4.0",
     "prettier": "^2.1.2",
     "pretty-quick": "^3.1.0",
     "rimraf": "^3.0.2",
