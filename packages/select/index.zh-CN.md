@@ -1,10 +1,10 @@
 ---
 map:
   # 映射到docs的路径
-  path: /components/button
+  path: /components/select
 ---
 
-# Button
+# ThSelect
 
 这是一个简单的按钮。
 
@@ -21,7 +21,7 @@ map:
 ## API
 
 ```ts
-import { Button } from 'thoughts-ui';
+import { ThSelect } from 'thoughts-ui';
 ```
 
 ## Props

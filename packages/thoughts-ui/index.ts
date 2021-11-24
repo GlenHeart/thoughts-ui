@@ -1,7 +1,9 @@
-import Select from '../select/select.vue';
+import ThSelect from '../select/src/select.vue';
+
+export { ThSelect };
 
 export default function install(Vue) {
-  [Select].forEach((comp) => {
+  [ThSelect].forEach((comp) => {
     Vue.component(comp.name, comp);
   });
 }

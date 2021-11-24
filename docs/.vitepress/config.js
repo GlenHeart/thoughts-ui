@@ -25,9 +25,7 @@ module.exports = {
         nav: [{ text: '指南', link: '/' }],
         sidebar: [
           { text: '介绍', link: '/' },
-          { text: 'Button', link: '/components/button/' },
-          { text: 'Affix', link: '/components/affix/'},
-          { text: 'Dialog', link: '/components/dialog/'}
+          { text: 'Select', link: '/components/select/' }
         ],
       },
       '/en/': {
@@ -39,9 +37,7 @@ module.exports = {
         nav: [{ text: 'Guide', link: '/' }],
         sidebar: [
           { text: 'Getting Started', link: '/en/' },
-          { text: 'Button', link: '/en/components/button/' },
-          { text: 'Affix', link: '/en/components/affix/'},
-          { text: 'Dialog', link: '/components/dialog/'}
+          { text: 'Select', link: '/en/components/select/' }
         ],
       },
     },

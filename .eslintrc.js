@@ -17,7 +17,7 @@ module.exports = {
   },
   rules: {
     '@typescript-eslint/explicit-module-boundary-types': 'off',
-    'semi-style': ['error', 'last'],
+    'semi-style': ['off', 'never'],
   },
   overrides: [
     {

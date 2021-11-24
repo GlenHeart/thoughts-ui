@@ -1,33 +1,32 @@
 <template>
   <div>
-    <p>
-      <span style="padding: 0 16px 0 4px; font-size: 14px; color: #777"
-        >点击次数:</span
-      >
-      <span>{{ count }}</span>
-    </p>
-    <Button @click="onClick">按钮</Button>
+    <th-select
+      v-model="value"
+      :options="options"
+      placeholder="Please select"
+      style="width: 240px"
+    />
   </div>
 </template>
 
 <script lang="ts">
-import { Button } from 'thoughts-ui';
-import { ref } from 'vue';
+import { ThSelect } from 'thoughts-ui';
+import { ref, defineComponent } from 'vue'
 
-export default {
-  components: {
-    Button,
-  },
+const initials = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j']
+
+export default defineComponent({
+  components: { ThSelect },
   setup() {
-    const count = ref(0);
-    function onClick() {
-      count.value++;
-    }
-
     return {
-      count,
-      onClick,
-    };
+      options: ref(
+        Array.from({ length: 1000 }).map((_, idx) => ({
+          value: `Option ${idx + 1}`,
+          label: `${initials[idx % 10]}${idx}`,
+        }))
+      ),
+      value: ref(''),
+    }
   },
-};
+})
 </script>
