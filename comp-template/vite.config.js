@@ -3,7 +3,7 @@
 import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx'
 import { resolve } from 'path'
-
+import { name, version } from './package.json'
 /**
  * @type {import('vite').UserConfig}
  */
@@ -13,11 +13,16 @@ export default {
     exclude: []
   },
   plugins: [vue(), vueJsx()],
+  resolve: {
+    alias: {
+      ['@element-plus']: resolve('element-plus/packages')
+    }
+  },
   build: {
     minify: true,
     lib: {
       entry: resolve('index.ts'),
-      name: 'thoughts-ui'
+      name
     },
     rollupOptions: {
       // make sure to externalize deps that shouldn't be bundled
@@ -31,5 +36,8 @@ export default {
         }
       }
     }
+  },
+  define: {
+    pkgJson: { name, version }
   }
 }

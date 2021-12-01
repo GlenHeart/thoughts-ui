@@ -41,6 +41,7 @@ module.exports = {
     '@typescript-eslint/no-explicit-any': 'off',
     '@typescript-eslint/no-non-null-assertion': 'off',
     '@typescript-eslint/no-non-null-asserted-optional-chain': 'off',
+    'vue/script-setup-uses-vars': 'off',
     // vue
     'vue/no-v-html': 'off',
     'vue/require-default-prop': 'off',
