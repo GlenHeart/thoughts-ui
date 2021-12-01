@@ -1,23 +1,28 @@
 // yarn build 用到的vite配置
 
-import vue from '@vitejs/plugin-vue';
-import vueJsx from '@vitejs/plugin-vue-jsx';
-import { resolve } from 'path';
-import { name, version } from './package.json';
+import vue from '@vitejs/plugin-vue'
+import vueJsx from '@vitejs/plugin-vue-jsx'
+import { resolve } from 'path'
+import { name, version } from './package.json'
 /**
  * @type {import('vite').UserConfig}
  */
 export default {
   optimizeDeps: {
     include: [],
-    exclude: [],
+    exclude: []
   },
   plugins: [vue(), vueJsx()],
+  resolve: {
+    alias: {
+      ['@element-plus']: resolve('element-plus/packages')
+    }
+  },
   build: {
     minify: true,
     lib: {
       entry: resolve('index.ts'),
-      name,
+      name
     },
     rollupOptions: {
       // make sure to externalize deps that shouldn't be bundled
@@ -27,12 +32,12 @@ export default {
         // Provide global variables to use in the UMD build
         // for externalized deps
         globals: {
-          vue: 'Vue',
-        },
-      },
-    },
+          vue: 'Vue'
+        }
+      }
+    }
   },
   define: {
-    pkgJson: { name, version },
-  },
-};
+    pkgJson: { name, version }
+  }
+}

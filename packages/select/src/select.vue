@@ -247,17 +247,20 @@
 
 <script lang="ts">
 import { defineComponent, provide, toRefs, reactive, vModelText } from 'vue'
-import { ClickOutside } from '@element-plus/directives'
-import ElPopper from '@element-plus/components/popper'
-import ElTag from '@element-plus/components/tag'
-import ElIcon from '@element-plus/components/icon'
-import { UPDATE_MODEL_EVENT, CHANGE_EVENT } from '@element-plus/utils/constants'
+import { ClickOutside } from 'element-plus/lib/directives/index.js'
+import ElPopper from 'element-plus/lib/components/popper/index.js'
+import ElTag from 'element-plus/lib/components/tag/index.js'
+import ElIcon from 'element-plus/lib/components/icon/index.js'
+import {
+  UPDATE_MODEL_EVENT,
+  CHANGE_EVENT
+} from 'element-plus/lib/utils/constants'
 import ElSelectMenu from './select-dropdown.vue'
 import useSelect from './useSelect'
 import { selectV2InjectionKey } from './token'
 import { SelectProps } from './defaults'
 export default defineComponent({
-  name: 'ThSelect',
+  name: 'ElSelectV2',
   components: {
     ElSelectMenu,
     ElTag,

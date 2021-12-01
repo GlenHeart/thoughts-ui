@@ -41,11 +41,6 @@ module.exports = {
     '@typescript-eslint/no-explicit-any': 'off',
     '@typescript-eslint/no-non-null-assertion': 'off',
     '@typescript-eslint/no-non-null-asserted-optional-chain': 'off',
-    '@typescript-eslint/consistent-type-imports': [
-      'error',
-      { disallowTypeAnnotations: false }
-    ],
-
     // vue
     'vue/no-v-html': 'off',
     'vue/require-default-prop': 'off',
@@ -55,43 +50,6 @@ module.exports = {
 
     // prettier
     'prettier/prettier': 'error',
-
-    // import
-    'import/first': 'error',
-    'import/no-duplicates': 'error',
-    'import/order': [
-      'error',
-      {
-        groups: [
-          'builtin',
-          'external',
-          'internal',
-          'parent',
-          'sibling',
-          'index',
-          'object',
-          'type'
-        ],
-
-        pathGroups: [
-          {
-            pattern: 'vue',
-            group: 'external',
-            position: 'before'
-          },
-          {
-            pattern: '@vue/**',
-            group: 'external',
-            position: 'before'
-          },
-          {
-            pattern: '@element-plus/**',
-            group: 'internal'
-          }
-        ],
-        pathGroupsExcludedImportTypes: ['type']
-      }
-    ],
     'semi-style': ['off', 'never']
   },
   overrides: [

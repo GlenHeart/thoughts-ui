@@ -8,7 +8,7 @@ module.exports = {
   srcIncludes: ['packages'],
   alias: {
     // 为了能在demo中正确的使用  import { X } from 'thoughts-ui'
-    [`thoughts-ui`]: resolve('./packages/thoughts-ui/index.ts'),
+    [`thoughts-ui`]: resolve('./packages/thoughts-ui/index.ts')
   },
   base,
   themeConfig: {

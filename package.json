@@ -88,10 +88,11 @@
   },
   "dependencies": {
     "@element-plus/components": "^0.0.5",
+    "@element-plus/hooks": "^0.0.5",
     "@element-plus/icons": "^0.0.11",
     "@element-plus/utils": "^0.0.5",
     "@vueuse/core": "^6.7.3",
-    "element-plus": "^1.1.0-beta.20",
+    "element-plus": "1.2.0-beta.4",
     "lodash": "^4.17.21"
   }
 }

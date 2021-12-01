@@ -1,39 +1,39 @@
-import { isValidComponentSize } from '@element-plus/utils/validators';
-import { CircleClose } from '@element-plus/icons';
+import { isValidComponentSize } from 'element-plus/lib/utils/validators'
+import { CircleClose } from '@element-plus/icons'
 
-import type { PropType, Component } from 'vue';
-import type { ComponentSize } from '@element-plus/utils/types';
-import type { OptionType } from './select.types';
-import type { Options } from '@element-plus/components/popper';
+import type { PropType, Component } from 'vue'
+import type { ComponentSize } from 'element-plus/lib/utils/types'
+import type { OptionType } from './select.types'
+import type { Options } from 'element-plus/lib/components/popper'
 
 export const SelectProps = {
   allowCreate: Boolean,
   autocomplete: {
     type: String as PropType<'none' | 'both' | 'list' | 'inline'>,
-    default: 'none',
+    default: 'none'
   },
   automaticDropdown: Boolean,
   clearable: Boolean,
   clearIcon: {
     type: [String, Object] as PropType<string | Component>,
-    default: CircleClose,
+    default: CircleClose
   },
   collapseTags: Boolean,
   defaultFirstOption: Boolean,
   disabled: Boolean,
   estimatedOptionHeight: {
     type: Number,
-    default: undefined,
+    default: undefined
   },
   filterable: Boolean,
   filterMethod: Function,
   height: {
     type: Number,
-    default: 170, // 5 items by default
+    default: 170 // 5 items by default
   },
   itemHeight: {
     type: Number,
-    default: 34,
+    default: 34
   },
   id: String,
   loading: Boolean,
@@ -45,7 +45,7 @@ export const SelectProps = {
   multiple: Boolean,
   multipleLimit: {
     type: Number,
-    default: 0,
+    default: 0
   },
   name: String,
   noDataText: String,
@@ -54,36 +54,36 @@ export const SelectProps = {
   reserveKeyword: Boolean,
   options: {
     type: Array as PropType<OptionType[]>,
-    required: true,
+    required: true
   },
   placeholder: {
-    type: String,
+    type: String
   },
   popperAppendToBody: {
     type: Boolean,
-    default: true,
+    default: true
   },
   popperClass: {
     type: String,
-    default: '',
+    default: ''
   },
   popperOptions: {
     type: Object as PropType<Partial<Options>>,
-    default: () => ({} as Partial<Options>),
+    default: () => ({} as Partial<Options>)
   },
   remote: Boolean,
   size: {
     type: String as PropType<ComponentSize>,
-    validator: isValidComponentSize,
+    validator: isValidComponentSize
   },
   valueKey: {
     type: String,
-    default: 'value',
+    default: 'value'
   },
   scrollbarAlwaysOn: {
     type: Boolean,
-    default: false,
-  },
+    default: false
+  }
 }
 
 export const OptionProps = {
@@ -94,5 +94,5 @@ export const OptionProps = {
   index: Number,
   style: Object,
   selected: Boolean,
-  created: Boolean,
+  created: Boolean
 }

@@ -25,7 +25,8 @@
     "rootDir": ".",
     "paths": {
       "@/*": ["packages/*"],
-      "thoughts-ui": ["packages/thoughts-ui"]
+      "thoughts-ui": ["packages/thoughts-ui"],
+      "element-plus/lib/hooks/index.js": ["packages/select/types/useLocale.d.ts"],
     }
   },
   "include": ["packages"],

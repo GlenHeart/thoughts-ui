@@ -11,15 +11,18 @@ import {
 import { isArray, isFunction, isObject } from '@vue/shared'
 import isEqual from 'lodash/isEqual'
 import lodashDebounce from 'lodash/debounce'
-import { elFormKey, elFormItemKey } from '@element-plus/tokens'
-import { useLocaleInject } from '@element-plus/hooks'
-import { UPDATE_MODEL_EVENT, CHANGE_EVENT } from '@element-plus/utils/constants'
+import { elFormKey, elFormItemKey } from 'element-plus/lib/tokens/index.js'
+import { useLocale } from 'element-plus/lib/hooks/index.js'
+import {
+  UPDATE_MODEL_EVENT,
+  CHANGE_EVENT
+} from 'element-plus/lib/utils/constants'
 import {
   addResizeListener,
   removeResizeListener,
-} from '@element-plus/utils/resize-event'
-import { getValueByPath, useGlobalConfig } from '@element-plus/utils/util'
-import { Effect } from '@element-plus/components/popper'
+} from 'element-plus/lib/utils/resize-event'
+import { getValueByPath, useGlobalConfig } from 'element-plus/lib/utils/util'
+import { Effect } from 'element-plus/lib/components/popper/index.js'
 
 import { ArrowUp } from '@element-plus/icons'
 import { useAllowCreate } from './useAllowCreate'
@@ -29,7 +32,10 @@ import { flattenOptions } from './util'
 import { useInput } from './useInput'
 import type { SelectProps } from './defaults'
 import type { ExtractPropTypes, CSSProperties } from 'vue'
-import type { ElFormContext, ElFormItemContext } from '@element-plus/tokens'
+import type {
+  ElFormContext,
+  ElFormItemContext
+} from 'element-plus/lib/tokens/index.js'
 import type { OptionType, Option } from './select.types'
 
 const DEFAULT_INPUT_PLACEHOLDER = ''
@@ -41,7 +47,7 @@ const TAG_BASE_WIDTH = {
 
 const useSelect = (props: ExtractPropTypes<typeof SelectProps>, emit) => {
   // inject
-  const { t } = useLocaleInject()
+  const { t } = useLocale()
   const elForm = inject(elFormKey, {} as ElFormContext)
   const elFormItem = inject(elFormItemKey, {} as ElFormItemContext)
   const $ELEMENT = useGlobalConfig()

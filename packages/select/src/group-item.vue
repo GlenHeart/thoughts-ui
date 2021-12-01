@@ -15,24 +15,16 @@
 </template>
 
 <script lang="ts">
-import { StyleValue } from '@element-plus/components/virtual-list';
-import { defineComponent, PropType } from 'vue';
+import { defineComponent } from 'vue'
 
 export default defineComponent({
   props: {
     item: {
       type: Object,
-      required: true,
+      required: true
     },
-    style: {
-      type: Object as PropType<StyleValue>,
-      required: true,
-    },
-    height: {
-      type: Number as PropType<number>,
-      required: true,
-      default: 0,
-    },
-  },
+    style: Object,
+    height: Number
+  }
 })
 </script>

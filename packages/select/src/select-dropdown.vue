@@ -9,24 +9,24 @@ import {
   withCtx,
   withKeys,
   withModifiers,
-} from 'vue';
+} from 'vue'
 import {
   getValueByPath,
   isUndefined,
-  isObject,
-} from '@element-plus/utils/util';
+  isObject
+} from 'element-plus/lib/utils/util'
 // import { addResizeListener, removeResizeListener, ResizableElement } from '@element-plus/utils/resize-event'
 import {
   FixedSizeList,
-  DynamicSizeList,
-} from '@element-plus/components/virtual-list';
-import GroupItem from './group-item.vue';
-import OptionItem from './option-item.vue';
+  DynamicSizeList
+} from 'element-plus/lib/components/virtual-list/index.js'
+import GroupItem from './group-item.vue'
+import OptionItem from './option-item.vue'
 
-import { selectV2InjectionKey } from './token';
+import { selectV2InjectionKey } from './token'
 
-import type { ItemProps } from '@element-plus/components/virtual-list';
-import type { OptionItemProps, Option } from './select.types';
+import type { ItemProps } from 'element-plus/lib/components/virtual-list'
+import type { OptionItemProps, Option } from './select.types'
 
 export default defineComponent({
   name: 'ElSelectDropdown',
@@ -37,34 +37,34 @@ export default defineComponent({
     width: Number,
   },
   setup(props) {
-    const select = inject(selectV2InjectionKey) as any;
-    const cachedHeights = ref<Array<number>>([]);
+    const select = inject(selectV2InjectionKey) as any
+    const cachedHeights = ref<Array<number>>([])
 
-    const listRef = ref(null);
+    const listRef = ref(null)
 
     const isSized = computed(() =>
       isUndefined(select.props.estimatedOptionHeight)
-    );
+    )
     const listProps = computed(() => {
       if (isSized.value) {
         return {
           itemSize: select.props.itemHeight,
-        };
+        }
       }
 
       return {
         estimatedSize: select.props.estimatedOptionHeight,
         itemSize: (idx: number) => cachedHeights.value[idx],
-      };
-    });
+      }
+    })
 
     const contains = (arr: Array<any> = [], target: any) => {
       const {
         props: { valueKey },
-      } = select;
+      } = select
 
       if (!isObject(target)) {
-        return arr.includes(target);
+        return arr.includes(target)
       }
 
       return (
@@ -72,10 +72,10 @@ export default defineComponent({
         arr.some((item) => {
           return (
             getValueByPath(item, valueKey) === getValueByPath(target, valueKey)
-          );
+          )
         })
-      );
-    };
+      )
+    }
     const isEqual = (selected: unknown, target: unknown) => {
       if (!isObject(target)) {
         return selected === target
@@ -84,9 +84,9 @@ export default defineComponent({
         return (
           getValueByPath(selected, valueKey) ===
           getValueByPath(target, valueKey)
-        );
+        )
       }
-    };
+    }
 
     const isItemSelected = (modelValue: any[] | any, target: Option) => {
       if (select.props.multiple) {
