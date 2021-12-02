@@ -17,7 +17,7 @@ export default defineComponent({
       options: ref(
         Array.from({ length: 1000 }).map((_, idx) => ({
           value: `Option ${idx + 1}`,
-          label: `${initials[idx % 10]}${idx}`
+          text: `${initials[idx % 10]}${idx}`
         }))
       ),
       value: ref('')

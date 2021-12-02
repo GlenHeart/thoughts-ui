@@ -1,9 +1,9 @@
 ---
 map:
-  path: /components/select
+  path: /components/virtual-scroll
 ---
 
-# Button
+# virtual-scroll
 
 This is a button.
 

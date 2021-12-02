@@ -25,7 +25,6 @@ module.exports = {
         nav: [{ text: '指南', link: '/' }],
         sidebar: [
           { text: '介绍', link: '/' },
-          { text: 'Select', link: '/components/select/' },
           { text: 'VirtualScroll', link: '/components/virtual-scroll/' }
         ]
       },
@@ -38,7 +37,6 @@ module.exports = {
         nav: [{ text: 'Guide', link: '/' }],
         sidebar: [
           { text: 'Getting Started', link: '/en/' },
-          { text: 'Select', link: '/en/components/select/' },
           { text: 'VirtualScroll', link: '/en/components/virtual-scroll/' }
         ]
       }
