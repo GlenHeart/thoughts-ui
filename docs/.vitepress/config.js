@@ -1,5 +1,5 @@
-const base = process.env.NODE_ENV === 'production' ? '/thoughts-ui' : '';
-const { resolve } = require('path');
+const base = process.env.NODE_ENV === 'production' ? '/thoughts-ui' : ''
+const { resolve } = require('path')
 
 module.exports = {
   title: 'thoughts-ui',
@@ -25,8 +25,9 @@ module.exports = {
         nav: [{ text: '指南', link: '/' }],
         sidebar: [
           { text: '介绍', link: '/' },
-          { text: 'Select', link: '/components/select/' }
-        ],
+          { text: 'Select', link: '/components/select/' },
+          { text: 'VirtualScroll', link: '/components/virtual-scroll/' }
+        ]
       },
       '/en/': {
         lang: 'en-US',
@@ -37,17 +38,18 @@ module.exports = {
         nav: [{ text: 'Guide', link: '/' }],
         sidebar: [
           { text: 'Getting Started', link: '/en/' },
-          { text: 'Select', link: '/en/components/select/' }
-        ],
-      },
+          { text: 'Select', link: '/en/components/select/' },
+          { text: 'VirtualScroll', link: '/en/components/virtual-scroll/' }
+        ]
+      }
     },
     search: {
-      searchMaxSuggestions: 10,
+      searchMaxSuggestions: 10
     },
     repo: 'dairan103@gmail.com/thoughts-ui',
     repoLabel: 'Github',
     lastUpdated: true,
     prevLink: true,
-    nextLink: true,
+    nextLink: true
   }
-};
+}
