@@ -1,6 +1,6 @@
 <template>
   <div>
-    <ThVirtualScroll :options="options" />
+    <ThVirtualScroll :options="options" :item-height="32" />
   </div>
 </template>
 

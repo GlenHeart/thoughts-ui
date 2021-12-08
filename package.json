@@ -99,6 +99,7 @@
     "@vueuse/core": "^6.7.3",
     "element-plus": "1.2.0-beta.4",
     "inquirer": "^8.2.0",
-    "lodash": "^4.17.21"
+    "lodash": "^4.17.21",
+    "vue": "^3.2.24"
   }
 }
