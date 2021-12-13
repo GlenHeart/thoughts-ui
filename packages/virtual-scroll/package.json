@@ -30,7 +30,7 @@
     "url": "git+https://github.com/break-a-leg-908/thoughts-ui.git"
   },
   "scripts": {
-    "test": "echo \"Error: run tests from root\" && exit 1"
+    "type": "tsc -d"
   },
   "bugs": {
     "url": "https://github.com/break-a-leg-908/thoughts-ui/issues"
