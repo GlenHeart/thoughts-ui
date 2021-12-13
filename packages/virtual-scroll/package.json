@@ -1,0 +1,38 @@
+{
+  "name": "@thoughts-ui/virtual-scroll",
+  "version": "0.0.0",
+  "description": "> TODO: description",
+  "keywords": [
+    "virtual",
+    "scroll"
+  ],
+  "author": "dairan <dairan103@aliyun.com>",
+  "homepage": "https://github.com/break-a-leg-908/thoughts-ui#readme",
+  "license": "ISC",
+  "main": "index.ts",
+  "module": "index.ts",
+  "types": "index.d.ts",
+  "unpkg": "index.js",
+  "jsdelivr": "index.js",
+  "sideEffects": false,
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "publishConfig": {
+    "registry": "http://172.16.9.242:8081/repository/npm-group/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/break-a-leg-908/thoughts-ui.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "bugs": {
+    "url": "https://github.com/break-a-leg-908/thoughts-ui/issues"
+  }
+}

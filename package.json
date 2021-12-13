@@ -1,0 +1,13 @@
+{
+  "name": "root",
+  "private": true,
+  "workspaces": ["packages/*"],
+  "devDependencies": {
+    "lerna": "^4.0.0"
+  },
+  "dependencies": {
+    "typescript": "^4.5.3",
+    "vue": "^3.2.24",
+    "@thoughts-ui/virtual-scroll": "workspace:*"
+  }
+}
