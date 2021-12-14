@@ -16,11 +16,11 @@
   "jsdelivr": "index.js",
   "sideEffects": false,
   "directories": {
-    "lib": "lib",
+    "lib": "dist",
     "test": "__tests__"
   },
   "files": [
-    "lib"
+    "dist"
   ],
   "publishConfig": {
     "registry": "http://172.16.9.242:8081/repository/npm-group/"
