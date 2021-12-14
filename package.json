@@ -11,13 +11,17 @@
   },
   "devDependencies": {
     "@vitejs/plugin-vue-jsx": "^1.3.1",
+    "@vue/compiler-sfc": "^3.2.26",
+    "fast-glob": "^3.2.7",
     "lerna": "^4.0.0",
+    "ts-morph": "^13.0.2",
     "vitepress": "^0.20.5"
   },
   "dependencies": {
     "@thoughts-ui/virtual-scroll": "workspace:*",
     "thoughts-ui": "workspace:*",
     "typescript": "^4.5.3",
+    "vite": "^2.7.1",
     "vitepress-for-component": "^0.16.3",
     "vue": "^3.2.24"
   }
