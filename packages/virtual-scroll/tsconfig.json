@@ -8,5 +8,5 @@
     "index.ts",
     "../../typings"
   ],
-  "exclude": ["dist"]
+  "exclude": ["node_modules", "dist"]
 }

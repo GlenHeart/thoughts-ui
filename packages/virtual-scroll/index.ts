@@ -1,4 +1,4 @@
-import VirtualScroll from './src/virtual-scroll.vue'
+import VirtualScroll from './src/virtual-scroll'
 import { App } from 'vue'
 
 VirtualScroll.install = function (app: App): void {
