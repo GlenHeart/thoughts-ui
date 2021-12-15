@@ -5,18 +5,26 @@
   "author": "dairan <dairan103@aliyun.com>",
   "homepage": "https://github.com/break-a-leg-908/thoughts-ui#readme",
   "license": "ISC",
-  "main": "index.ts",
-  "module": "index.ts",
-  "types": "index.d.ts",
-  "unpkg": "index.js",
-  "jsdelivr": "index.js",
-  "sideEffects": false,
+  "main": "./dist/thoughts-ui.umd.js",
+  "module": "./dist/thoughts-ui.es.js",
+  "style": "./dist/style.css",
+  "exports": {
+    ".": {
+      "import": "./dist/thoughts-ui.es.js",
+      "require": "./dist/thoughts-ui.umd.js"
+    },
+    "./dist/style.css": {
+      "import": "./dist/style.css",
+      "require": "./dist/style.css"
+    }
+  },
+  "types": "dist/index.d.ts",
   "directories": {
-    "lib": "lib",
+    "lib": "dist",
     "test": "__tests__"
   },
   "files": [
-    "lib"
+    "dist"
   ],
   "publishConfig": {
     "registry": "http://172.16.9.242:8081/repository/npm-group/"

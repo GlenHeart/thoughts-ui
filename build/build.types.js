@@ -20,12 +20,12 @@ async function main() {
       outDir: './dist',
       skipLibCheck: true,
     },
-    tsConfigFilePath: path.resolve(__dirname, './tsconfig.json'),
+    tsConfigFilePath: path.resolve(process.cwd(), './tsconfig.json'),
     skipAddingFilesFromTsConfig: true
   })
 
   // 获取 src 下的 .vue 和 .ts 文件
-  const files = await glob(['src/**/*.ts', 'src/**/*.vue', 'index.ts'])
+  const files = await glob(['src/**/*', 'index.ts'])
   const sourceFiles = []
 
   await Promise.all(

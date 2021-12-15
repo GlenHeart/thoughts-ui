@@ -1,5 +1,3 @@
-// will-ui/index.ts
-
 import { App } from 'vue'
 import virtualScroll from '@thoughts-ui/virtual-scroll'
 
