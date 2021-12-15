@@ -1,0 +1,40 @@
+{
+  "name": "@thoughts-ui/steps",
+  "version": "0.0.0",
+  "description": "> TODO: description",
+  "keywords": [
+    "virtual",
+    "scroll"
+  ],
+  "author": "dairan <dairan103@aliyun.com>",
+  "homepage": "https://github.com/break-a-leg-908/thoughts-ui#readme",
+  "license": "ISC",
+  "main": "index.ts",
+  "module": "index.ts",
+  "types": "index.d.ts",
+  "unpkg": "index.js",
+  "jsdelivr": "index.js",
+  "sideEffects": false,
+  "directories": {
+    "lib": "dist",
+    "test": "__tests__"
+  },
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "registry": "http://172.16.9.242:8081/repository/npm-group/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/break-a-leg-908/thoughts-ui.git"
+  },
+  "scripts": {
+    "type": "tsc -d",
+    "build": "vite build && yarn type",
+    "build:types": "node ../../build/build.types.js"
+  },
+  "bugs": {
+    "url": "https://github.com/break-a-leg-908/thoughts-ui/issues"
+  }
+}
