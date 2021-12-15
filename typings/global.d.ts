@@ -1,3 +1,5 @@
-import { App } from 'vue'
-
-export type IWithInstall<T> = T & { install(app:App): void }
+declare module 'vue' {
+  export interface GlobalComponents {
+    ThVirtualScroll: typeof import('thoughts-ui')['ThVirtualScroll']
+  }
+}
