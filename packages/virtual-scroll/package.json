@@ -11,7 +11,7 @@
   "license": "ISC",
   "main": "index.ts",
   "module": "index.ts",
-  "types": "index.d.ts",
+  "types": "dist/virtual-scroll/index.d.ts",
   "unpkg": "index.js",
   "jsdelivr": "index.js",
   "sideEffects": false,
@@ -30,7 +30,7 @@
     "url": "git+https://github.com/break-a-leg-908/thoughts-ui.git"
   },
   "scripts": {
-    "type": "tsc -d",
+    "type": "node ../../build/build.types.js",
     "build": "vite build && yarn type",
     "build:types": "node ../../build/build.types.js"
   },
