@@ -20,6 +20,8 @@
   },
   "dependencies": {
     "@thoughts-ui/virtual-scroll": "workspace:*",
+    "@thoughts-ui/utils": "workspace:*",
+    "@vue/shared": "^3.2.26",
     "sass": "^1.45.0",
     "thoughts-ui": "workspace:*",
     "typescript": "^4.5.3",

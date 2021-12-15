@@ -1,8 +1,6 @@
+import { withInstall } from '@thoughts-ui/utils/with-install'
 import VirtualScroll from './src/virtual-scroll'
-import { App } from 'vue'
 
-VirtualScroll.install = function (app: App): void {
-  app.component(VirtualScroll.name, VirtualScroll)
-}
-
-export default VirtualScroll
+export const ThVirtualScroll = withInstall(VirtualScroll)
+export default ThVirtualScroll
+export * from './src/virtual-scroll'
