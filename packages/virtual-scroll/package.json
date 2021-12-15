@@ -32,7 +32,7 @@
   "scripts": {
     "type": "tsc -d",
     "build": "vite build && yarn type",
-    "build:types": "node build.js"
+    "build:types": "node ../../build/build.types.js"
   },
   "bugs": {
     "url": "https://github.com/break-a-leg-908/thoughts-ui/issues"

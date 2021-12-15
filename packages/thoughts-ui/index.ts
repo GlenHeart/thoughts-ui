@@ -13,3 +13,5 @@ const install = (app: App): void => {
 export default {
   install
 }
+
+export * from '@thoughts-ui/virtual-scroll'
