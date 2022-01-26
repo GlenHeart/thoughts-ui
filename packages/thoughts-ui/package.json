@@ -18,7 +18,7 @@
       "require": "./dist/style.css"
     }
   },
-  "types": "dist/index.d.ts",
+  "types": "dist/thoughts-ui/index.d.ts",
   "directories": {
     "lib": "dist",
     "test": "__tests__"
@@ -35,7 +35,7 @@
   },
   "scripts": {
     "build": "vite build && yarn type",
-    "type": "tsc -d"
+    "type": "node ../../build/build.types.js"
   },
   "bugs": {
     "url": "https://github.com/break-a-leg-908/thoughts-ui/issues"

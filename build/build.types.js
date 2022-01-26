@@ -81,7 +81,7 @@ async function main() {
 
     for (const outputFile of emitOutput.getOutputFiles()) {
       const filePath = outputFile.getFilePath()
-
+      console.log(`[${filePath}] emitted`)
       await fs.promises.mkdir(path.dirname(filePath), { recursive: true })
       await fs.promises.writeFile(filePath, outputFile.getText(), 'utf8')
     }

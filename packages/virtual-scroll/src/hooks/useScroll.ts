@@ -1,6 +1,5 @@
-import { Ref, ref } from 'vue'
+import Vue, { Ref, ref } from 'vue'
 import type { virtualScrollOption } from '../type'
-
 export default function useScroll(
   virtualScrollListRef: { value: unknown },
   itemHeight: { value: number },

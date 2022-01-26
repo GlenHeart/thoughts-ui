@@ -15,12 +15,13 @@
     "@vue/compiler-sfc": "^3.2.26",
     "fast-glob": "^3.2.7",
     "lerna": "^4.0.0",
+    "np": "^7.6.0",
     "ts-morph": "^13.0.2",
     "vitepress": "^0.20.5"
   },
   "dependencies": {
-    "@thoughts-ui/virtual-scroll": "workspace:*",
     "@thoughts-ui/utils": "workspace:*",
+    "@thoughts-ui/virtual-scroll": "workspace:*",
     "@vue/shared": "^3.2.26",
     "sass": "^1.45.0",
     "thoughts-ui": "workspace:*",

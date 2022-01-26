@@ -23,7 +23,7 @@
     "dist"
   ],
   "publishConfig": {
-    "registry": "http://172.16.9.242:8081/repository/npm-group/"
+    "registry": "https://registry.npmjs.org/"
   },
   "repository": {
     "type": "git",
